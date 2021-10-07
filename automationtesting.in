@@ -1,0 +1,28 @@
+package automationTesting;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Automation{
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\browser drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+		driver.get("http://demo.automationtesting.in/Register.html");
+	WebElement e = driver.findElement(By.cssSelector("select#Skills"));
+	Select s = new Select(e);	
+		s.selectByIndex(9);
+	WebElement e2 = driver.findElement(By.cssSelector("select#yearbox"));	
+	Select s2 = new Select(e2);	
+		s2.selectByVisibleText("1987");
+	WebElement e3 = driver.findElement(By.cssSelector("select[placeholder='Month']"));
+	Select s3 = new Select(e3);
+		s3.selectByValue("October");
+	WebElement e4 = driver.findElement(By.cssSelector("select#daybox"));
+	Select s4 = new Select(e4);
+		s4.selectByIndex(8);
+	}
+}
